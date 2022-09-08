@@ -4,7 +4,7 @@ from hexbytes import HexBytes
 W3 = Web3(Web3.HTTPProvider('https://mainnet.infura.io/v3/b68c55096e8e42f98417020ce8a0eb28'))
 
 MY_ADDR = W3.toChecksumAddress('0x7Ac4efdB22702322dDadcf742Bb512A52AbF24CB')
-MY_PRIVATE_KEY = 'xxx'
+MY_PRIVATE_KEY = '0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef'
 
 abi='''
 [
