@@ -3,230 +3,21 @@ from hexbytes import HexBytes
 
 W3 = Web3(Web3.HTTPProvider('https://mainnet.infura.io/v3/b68c55096e8e42f98417020ce8a0eb28'))
 
-MY_ADDR = W3.toChecksumAddress('0x7Ac4efdB22702322dDadcf742Bb512A52AbF24CB')
-MY_PRIVATE_KEY = 'xxx'
+MY_ADDR = W3.toChecksumAddress('0x7Ac4efdB22702322dDadcf742Bb512A52AbF24CB') # your address
+MY_PRIVATE_KEY = 'xxx' # your private key
 
 abi='''
 [
-	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "times",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "_addr",
-				"type": "address"
-			},
-			{
-				"internalType": "bytes",
-				"name": "_data",
-				"type": "bytes"
-			}
-		],
-		"name": "batchCall",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "target",
-				"type": "address"
-			}
-		],
-		"name": "clone",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "result",
-				"type": "address"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_num",
-				"type": "uint256"
-			}
-		],
-		"name": "deploySubAddrs",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_user",
-				"type": "address"
-			}
-		],
-		"name": "getSubaddress",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address[]",
-				"name": "",
-				"type": "address[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_user",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_token",
-				"type": "address"
-			}
-		],
-		"name": "getSubaddressAndTokenids",
-		"outputs": [
-			{
-				"internalType": "address[]",
-				"name": "",
-				"type": "address[]"
-			},
-			{
-				"internalType": "uint256[][]",
-				"name": "",
-				"type": "uint256[][]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "owner",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "subAddressList",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "subcontract",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "withdrawETHEmergency",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_token",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_to",
-				"type": "address"
-			}
-		],
-		"name": "withdrawNFTs",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_token",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_to",
-				"type": "address"
-			},
-			{
-				"internalType": "address[]",
-				"name": "_subaddrs",
-				"type": "address[]"
-			},
-			{
-				"internalType": "uint256[][]",
-				"name": "_tokenids",
-				"type": "uint256[][]"
-			}
-		],
-		"name": "withdrawNFTsV2",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	}
+    { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" }, { "inputs": [ { "internalType": "uint256", "name": "times", "type": "uint256" }, { "internalType": "address", "name": "_addr", "type": "address" }, { "internalType": "bytes", "name": "_data", "type": "bytes" } ], "name": "batchCall", "outputs": [], "stateMutability": "payable", "type": "function" }, { "inputs": [ { "internalType": "address", "name": "target", "type": "address" } ], "name": "clone", "outputs": [ { "internalType": "address", "name": "result", "type": "address" } ], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [ { "internalType": "uint256", "name": "_num", "type": "uint256" } ], "name": "deploySubAddrs", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [ { "internalType": "address", "name": "_user", "type": "address" } ], "name": "getSubaddress", "outputs": [ { "internalType": "uint256", "name": "", "type": "uint256" }, { "internalType": "address[]", "name": "", "type": "address[]" } ], "stateMutability": "view", "type": "function" }, { "inputs": [ { "internalType": "address", "name": "_user", "type": "address" }, { "internalType": "address", "name": "_token", "type": "address" } ], "name": "getSubaddressAndTokenids", "outputs": [ { "internalType": "address[]", "name": "", "type": "address[]" }, { "internalType": "uint256[][]", "name": "", "type": "uint256[][]" } ], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "owner", "outputs": [ { "internalType": "address", "name": "", "type": "address" } ], "stateMutability": "view", "type": "function" }, { "inputs": [ { "internalType": "address", "name": "", "type": "address" }, { "internalType": "uint256", "name": "", "type": "uint256" } ], "name": "subAddressList", "outputs": [ { "internalType": "address", "name": "", "type": "address" } ], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "subcontract", "outputs": [ { "internalType": "address", "name": "", "type": "address" } ], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "withdrawETHEmergency", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [ { "internalType": "address", "name": "_token", "type": "address" }, { "internalType": "address", "name": "_to", "type": "address" } ], "name": "withdrawNFTs", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [ { "internalType": "address", "name": "_token", "type": "address" }, { "internalType": "address", "name": "_to", "type": "address" }, { "internalType": "address[]", "name": "_subaddrs", "type": "address[]" }, { "internalType": "uint256[][]", "name": "_tokenids", "type": "uint256[][]" } ], "name": "withdrawNFTsV2", "outputs": [], "stateMutability": "nonpayable", "type": "function" }
 ]
 '''
 contract = W3.eth.contract(address=W3.toChecksumAddress('0xED44409de91A340df26667E1FD21C9DA1EdE0Ef1'), abi=abi) # contract minter address
+
+abi_nfts = '''
+[
+    { "inputs": [ { "internalType": "address", "name": "owner", "type": "address" } ], "name": "tokensOfOwner", "outputs": [ { "internalType": "uint256[]", "name": "", "type": "uint256[]" } ], "stateMutability": "view", "type": "function" }
+]
+'''
 
 MENU = '''
 --------------------
@@ -332,10 +123,21 @@ def withdraw_nfts():
     try:
         nft_addr = W3.toChecksumAddress(input("please input the NFTs contract address >>> "))
         print("fetching your NFTs...")
-        res = contract.functions.getSubaddressAndTokenids(MY_ADDR, nft_addr).call()
+        res = [[],[]]
+        try:
+            res = contract.functions.getSubaddressAndTokenids(MY_ADDR, nft_addr).call()
+        except:
+            subaddrs = contract.functions.getSubaddress(MY_ADDR).call()
+            nft_contract = W3.eth.contract(address=nft_addr, abi=abi_nfts)
+            for addr in subaddrs[1]:
+                tokenids = nft_contract.functions.tokensOfOwner(addr).call()
+                if len(tokenids) > 0:
+                    print(f"subaddress {addr} has {len(tokenids)} NFTs")
+                    res[0].append(addr)
+                    res[1].append(tokenids)
+
         subaddrs = res[0]
         tokenids = res[1]
-
         # [['0xE37AcFeFA707CBb55a359E0cF3e057666f29AD68', '0x0000000000000000000000000000000000000000', '0x0Ad087E122eF7fdd26dCdb487EF8820ceb323cb0'], [[], [], [7, 8, 26, 27, 28, 29, 30]]]
         # due to some logic errors in the contract code getSubaddressAndTokenids
         # sometimes the tokenids is empty and the subaddrs is wrong, so we need to filter it
